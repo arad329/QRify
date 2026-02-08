@@ -1,0 +1,260 @@
+/* =========================
+   Design System
+========================= */
+
+:root {
+  /* Colors */
+  --bg: #0f172a;
+  --card-bg: rgba(255, 255, 255, 0.08);
+  --card-border: rgba(255, 255, 255, 0.12);
+
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5f5;
+
+  --accent-start: #6366f1;
+  --accent-end: #22d3ee;
+
+  /* Typography */
+  --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Spacing */
+  --radius-lg: 20px;
+  --radius-md: 12px;
+
+  /* Effects */
+  --blur: blur(20px);
+  --transition: 0.25s ease;
+}
+
+/* =========================
+   Reset & Base
+========================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-main);
+  background: radial-gradient(
+      800px circle at top,
+      rgba(99, 102, 241, 0.15),
+      transparent 40%
+    ),
+    var(--bg);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================
+   Layout
+========================= */
+
+.app {
+  width: 100%;
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  width: 100%;
+  max-width: 420px;
+  padding: 32px;
+  border-radius: var(--radius-lg);
+
+  background: var(--card-bg);
+  backdrop-filter: var(--blur);
+  -webkit-backdrop-filter: var(--blur);
+
+  border: 1px solid var(--card-border);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.35);
+
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* =========================
+   Header
+========================= */
+
+.card__header {
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+/* =========================
+   Form
+========================= */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form__label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.form__group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form__input {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--card-border);
+
+  background: rgba(15, 23, 42, 0.6);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+
+  outline: none;
+  transition: var(--transition);
+}
+
+.form__input::placeholder {
+  color: #94a3b8;
+}
+
+.form__input:focus {
+  border-color: var(--accent-start);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
+}
+.form__error {
+  font-size: 0.8rem;
+  color: #f87171; /* red-400 */
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: var(--transition);
+  pointer-events: none;
+}
+
+.form__error.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.form__input.is-error {
+  border-color: #f87171;
+  box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.25);
+}
+
+
+/* =========================
+   Buttons
+========================= */
+
+.btn {
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: var(--radius-md);
+  padding: 14px;
+  cursor: pointer;
+  border: none;
+  transition: var(--transition);
+}
+
+.btn--primary {
+  background: linear-gradient(
+    135deg,
+    var(--accent-start),
+    var(--accent-end)
+  );
+  color: #020617;
+}
+
+.btn--primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.35);
+}
+
+.btn--secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--text-secondary);
+}
+
+.btn--secondary:hover,
+.btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* =========================
+   Result Section
+========================= */
+
+.result {
+  display: none;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+.result.is-visible {
+  display: flex;
+}
+
+.qr-wrapper {
+  width: 200px;
+  height: 200px;
+  border-radius: var(--radius-md);
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+.actions .btn {
+  flex: 1;
+}
+
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 480px) {
+  .card {
+    padding: 24px;
+  }
+
+  .title {
+    font-size: 1.4rem;
+  }
+}

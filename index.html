@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>QRify</title>
+
+  <!-- Meta -->
+  <meta name="description" content="Generate clean, modern QR codes instantly from any link." />
+  <meta name="theme-color" content="#0f172a" />
+
+  <!-- Inter Font (CDN) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <main class="app">
+    <section class="card">
+
+      <header class="card__header">
+        <h1 class="title">QR Code Generator</h1>
+        <p class="subtitle">
+          Paste your link and generate a QR code instantly.
+        </p>
+      </header>
+
+      <form class="form" autocomplete="off" novalidate>
+        <label for="url" class="form__label">Your URL</label>
+
+        
+      <div class="form__group">
+  <input
+    type="url"
+    id="url"
+    name="url"
+    class="form__input"
+    placeholder="https://example.com"
+          
+          />
+          <span class="form__error">Please enter a valid URL</span>
+
+  <button type="submit" class="btn btn--primary">
+    Generate QR
+  </button>
+  </div>
+</form>
+
+      
+    
+
+      <div class="result" aria-hidden="true">
+        <div class="qr-wrapper">
+          <!-- QR Code will be injected here -->
+        </div>
+
+        <div class="actions">
+          <button class="btn btn--secondary">Download</button>
+          <button class="btn btn--ghost">Copy</button>
+        </div>
+      </div>
+
+    </section>
+  </main>
+  
+  <!-- Script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
